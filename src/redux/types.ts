@@ -16,7 +16,7 @@ export type FetchRequestActionType = {
   
 export type FetchSuccessType = {
     type: typeof GET_WORDS_SUCCESS
-    payload: string[]
+    payload: Array<string>
 }
   
 export type FetchFailedType = {

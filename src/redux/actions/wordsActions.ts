@@ -10,7 +10,7 @@ import {
     FetchFailedType
 } from '../types'
 
-export const initialRequest = () : FetchRequestActionType => {
+export const initialRequest = () : FetchRequestActionType => {    
     return {
         type: GET_WORDS_REQUESTED
     }

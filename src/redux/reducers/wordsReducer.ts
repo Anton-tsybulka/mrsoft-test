@@ -10,7 +10,7 @@ import {
 } from '../types'
 
 const initialState: InitialStateType = {
-    data: [] ,
+    data: [],
     loading: false,
     error: null
 }
