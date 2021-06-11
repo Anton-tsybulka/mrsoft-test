@@ -1,0 +1,19 @@
+.app {
+    width: 60%;
+    margin: 5% auto 0;
+}
+
+.app__button {
+    button {
+        border: 1px solid #fff;
+        border-radius: 22px;
+        min-width: 185px;
+        padding: 10px 0px;
+        background-color: rgb(10, 143, 143);
+        color: rgb(13, 35, 235);
+        &:hover {
+            background-color: rgb(8, 85, 95);
+            color: rgb(7, 168, 74);
+        }
+    }
+}
