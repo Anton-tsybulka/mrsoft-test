@@ -45,12 +45,13 @@ export const App: React.FC = memo(() => {
 
   const pressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      if (value.length !== 0) {       
-        if (!isNaN(+value)) {          
-          setFilterArr(filtrationLength(+value, data))
+      if (value.length !== 0) {   
+            
+        if (!isNaN(+value)) {               
+          return setFilterArr(filtrationLength(+value, data))
         }
         
-        setFilterArr(filtrationSubstring(value, data, isRegister))        
+        return setFilterArr(filtrationSubstring(value, data, isRegister))        
       }
     }
   }
