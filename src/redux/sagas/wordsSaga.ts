@@ -2,7 +2,6 @@ import { put, call, takeEvery, SagaReturnType } from 'redux-saga/effects'
 import axios from 'axios'
 import {GET_WORDS_REQUESTED} from '../actions/actionTypes'
 import {
-   initialRequest,
    fetchSuccess,
    returnFailed
 } from '../actions/wordsActions'
