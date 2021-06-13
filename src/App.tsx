@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, KeyboardEvent, memo, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { initialRequest } from './redux/actions/wordsActions'
 import { RootStateType } from './redux/store'
@@ -8,7 +8,7 @@ import './App.scss'
 
 let key = 0 
 
-export const App: React.FC = () => {
+export const App: React.FC = memo(() => {
   const data = useSelector<RootStateType, string []>(({words: {data}}) => data)
   const dispatch = useDispatch()
 
@@ -43,19 +43,27 @@ export const App: React.FC = () => {
     }
   }  
 
+  const pressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      if (value.length !== 0) {       
+        if (!isNaN(+value)) {          
+          setFilterArr(filtrationLength(+value, data))
+        }
+        
+        setFilterArr(filtrationSubstring(value, data, isRegister))        
+      }
+    }
+  }
+
   const changeCheckboxHandler = (e: ChangeEvent<HTMLInputElement>) => setIsRegister(e.currentTarget.checked)
 
   const blurHandler = () => {
     if(!value.length) setIsBlur(true)
   }
 
-  const clickLengthHandler = () => {
-    if(typeof +value === 'number') setFilterArr(filtrationLength(+value, data))
-  }
+  const clickLengthHandler = () => setFilterArr(filtrationLength(+value, data))  
 
-  const clickSubstringHandler = () => {        
-    if(typeof value === 'string') setFilterArr(filtrationSubstring(value, data, isRegister))
-  }
+  const clickSubstringHandler = () => setFilterArr(filtrationSubstring(value, data, isRegister)) 
   
   return (
     <div className='app'>
@@ -63,6 +71,7 @@ export const App: React.FC = () => {
         <input 
           value={value}
           onChange={changeHandler}
+          onKeyPress={pressHandler}
           onBlur={blurHandler} 
           autoFocus
           placeholder='number or substring'/>
@@ -111,4 +120,4 @@ export const App: React.FC = () => {
       </div>
     </div>
   )
-}
+})
