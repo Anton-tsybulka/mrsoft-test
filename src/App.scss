@@ -1,14 +1,38 @@
 .app {
     width: 60%;
     margin: 5% auto 0;
+    background-color: rgb(245, 245, 220);
+}
+
+p {
+    padding: 0 10px;
+    margin: 5px 0;
+}
+
+.app__input__enter {
+    margin-left: 10px;
+    padding-top: 5px;
+
+    input {
+        border: 1px solid rgb(10, 10, 10);
+        min-width: 185px;
+        padding: 5px 5px;
+    }
+    
+    .app__error {
+        color: rgb(230, 15, 15);
+    }
 }
 
 .app__button {
+    margin: 0 0 0 10px;
+
     button {
         border: 1px solid #fff;
         border-radius: 22px;
         min-width: 185px;
-        padding: 10px 0px;
+        padding: 10px 5px;
+        margin-top: 5px;
         background-color: rgb(10, 143, 143);
         color: rgb(13, 35, 235);
         &:hover {
@@ -17,3 +41,16 @@
         }
     }
 }
+
+.app__input__checkbox {
+    margin: 10px 0 10px 10px;
+
+    input {
+        vertical-align: middle;
+    }
+}
+
+.app__output {
+    background-color: rgb(245, 245, 220);    
+}
+

@@ -11,6 +11,7 @@ let key = 0
 export const App: React.FC = () => {
   const data = useSelector<RootStateType, string []>(({words: {data}}) => data)
   const dispatch = useDispatch()
+
   const [value, setValue] = useState<string>('')
   const [filterArr, setFilterArr] = useState<Array<string>>([])
   const [isRegister, setIsRegister] = useState<boolean>(false)
@@ -58,7 +59,7 @@ export const App: React.FC = () => {
   
   return (
     <div className='app'>
-      <div className='app__input_enter'>
+      <div className='app__input__enter'>
         <input 
           value={value}
           onChange={changeHandler}
@@ -90,17 +91,23 @@ export const App: React.FC = () => {
         </div>
       </div>
       <div className='app__input__checkbox'>
-        <span>Registr</span>
+        <label htmlFor='checkbox'>Registr</label>
         <input 
+          id='checkbox'
           type='checkbox'
           onChange={changeCheckboxHandler} 
           checked={isRegister}>
         </input>
       </div>
       <div className='app__output'>
-        {filterArr.map(item => (
+        <p>Output:</p>
+        {
+        filterArr &&
+        filterArr.length !== 0 && 
+        filterArr.map(item => (
           <p key={++key}>{item}</p>
-        ) )}
+        ))
+        }
       </div>
     </div>
   )
