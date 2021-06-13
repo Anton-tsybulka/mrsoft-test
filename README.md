@@ -1,5 +1,7 @@
 ## mrsoft-test
 
+Реализация: cocky-goldwasser-c0cf84.netlify.app
+
 Тестовое задание
 
 Сделать страницу, на которой будет:
